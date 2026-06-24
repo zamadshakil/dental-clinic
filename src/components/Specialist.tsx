@@ -1,41 +1,38 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { ShieldCheck, Cpu, Heart, Clock, Smile, Award } from 'lucide-react'
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' as const } },
-}
 
 const reasons = [
   {
     icon: <ShieldCheck size={28} />,
     title: 'Experienced Team',
-    description: 'Our skilled dental professionals bring years of expertise in advanced restorative and cosmetic dentistry.',
+    description: 'Dr. Carter and Dr. Mitchell bring over a decade of clinical expertise in restorative, cosmetic, and family dentistry.',
   },
   {
     icon: <Cpu size={28} />,
     title: 'Modern Technology',
-    description: 'State-of-the-art equipment and digital workflows for precise, comfortable treatments.',
+    description: 'Equipped with state-of-the-art 3D digital imaging, intraoral cameras, and laser tools for precise, comfortable treatments.',
   },
   {
     icon: <Heart size={28} />,
     title: 'Patient-First Care',
-    description: 'Your comfort is our priority. We listen, explain, and tailor every treatment plan to your needs.',
+    description: 'We prioritize your comfort. From warm blankets to gentle techniques, we customize care to eliminate dental anxiety.',
   },
   {
     icon: <Clock size={28} />,
     title: 'Flexible Scheduling',
-    description: 'Evening hours and emergency appointments available — dental care that fits your life.',
+    description: 'Convenient morning and evening hours, plus prioritized same-day emergency appointments for families on the go.',
   },
   {
     icon: <Smile size={28} />,
     title: 'Aesthetic Excellence',
-    description: 'From smile makeovers to veneers, we blend clinical precision with an artistic eye for stunning results.',
+    description: 'From porcelain veneers to clear aligner therapies, we combine medical science with an artistic eye for beautiful smiles.',
   },
   {
     icon: <Award size={28} />,
-    title: '5-Star Rated',
-    description: 'Trusted by 250+ happy patients with a perfect 5.0 rating — your satisfaction speaks for itself.',
+    title: '5-Star Rated Local Clinic',
+    description: 'Trusted by 500+ happy patients in the Dallas area. Committed to maintaining a stellar 5.0 rating on all platforms.',
   },
 ]
 
@@ -52,9 +49,9 @@ export default function Specialist() {
           transition={{ duration: 0.6 }}
         >
           <span className="text-accent font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">Why Choose Us</span>
-          <h2 id="specialist-heading" className="text-2xl sm:text-4xl lg:text-5xl font-black text-primary mb-3 sm:mb-4">Why Serene Dental Aesthetics?</h2>
+          <h2 id="specialist-heading" className="text-2xl sm:text-4xl lg:text-5xl font-black text-primary mb-3 sm:mb-4">Why Dallas Dental Care?</h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-sm sm:text-lg">
-            We combine advanced dental expertise with genuine compassion to deliver an experience that's as comfortable as it is transformative.
+            We blend cutting-edge dental science with a compassionate, gentle touch to provide a clinical experience that is both premium and comfortable.
           </p>
         </motion.div>
 

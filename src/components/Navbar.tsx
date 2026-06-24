@@ -1,19 +1,22 @@
+'use client'
+
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Phone, Menu, X } from 'lucide-react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useRouter, usePathname } from 'next/navigation'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'About', href: '#about' },
-  { label: 'Results', href: '#results' },
+  { label: 'Dentists', href: '#dentists' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const navigate = useNavigate()
-  const location = useLocation()
+  const router = useRouter()
+  const pathname = usePathname()
   const menuRef = useRef<HTMLDivElement>(null)
 
   /* Close mobile menu on Escape key */
@@ -46,14 +49,14 @@ export default function Navbar() {
       }
     }
 
-    if (location.pathname !== '/') {
-      navigate('/')
+    if (pathname !== '/') {
+      router.push('/')
       setTimeout(scrollToSection, 300)
     } else {
       // Delay scroll so mobile menu close animation doesn't block it
       setTimeout(scrollToSection, 350)
     }
-  }, [navigate, location.pathname])
+  }, [router, pathname])
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md" role="navigation" aria-label="Main navigation">
@@ -64,20 +67,20 @@ export default function Navbar() {
             href="/"
             onClick={(e) => {
               e.preventDefault()
-              if (location.pathname !== '/') navigate('/')
+              if (pathname !== '/') router.push('/')
               else window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
             className="flex items-center gap-2 sm:gap-3"
-            aria-label="Serene Dental Aesthetics — go to homepage"
+            aria-label="Dallas Dental Care — go to homepage"
           >
-            <img
-              src="/images/Serene Dental Aesthetics.png"
-              alt="Serene Dental Aesthetics logo"
-              className="h-10 sm:h-12 w-auto rounded-lg"
-            />
+            {/* Custom premium SVG logo */}
+            <svg className="w-7 h-7 sm:w-8 sm:h-8 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
+              <path d="M12 6v12M6 12h12"/>
+            </svg>
             <div className="flex flex-col">
-              <span className="text-lg sm:text-xl font-bold tracking-tight text-primary uppercase">Serene Dental</span>
-              <span className="text-[9px] sm:text-[10px] tracking-[0.2em] text-accent font-semibold uppercase">Aesthetics</span>
+              <span className="text-base sm:text-lg font-extrabold tracking-tight text-primary uppercase">Dallas Dental</span>
+              <span className="text-[9px] sm:text-[10px] tracking-[0.22em] text-accent font-bold uppercase">Care</span>
             </div>
           </a>
 
@@ -94,11 +97,11 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="tel:03302737363"
+              href="tel:2145550187"
               className="bg-primary text-white px-5 lg:px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
             >
               <Phone size={14} aria-hidden="true" />
-              0330 2737363
+              (214) 555-0187
             </a>
           </div>
 
@@ -154,12 +157,12 @@ export default function Navbar() {
                 ))}
                 <div className="pt-2">
                   <a
-                    href="tel:03302737363"
+                    href="tel:2145550187"
                     role="menuitem"
                     className="bg-primary text-white px-6 py-3.5 rounded-xl text-base font-bold flex items-center justify-center gap-2 w-full active:scale-[0.98] transition-transform"
                   >
                     <Phone size={16} aria-hidden="true" />
-                    Call 0330 2737363
+                    Call (214) 555-0187
                   </a>
                 </div>
               </div>

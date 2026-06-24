@@ -1,8 +1,8 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import {
-  Zap, Layers, Smile, Crown, CircleDot, Sparkles,
-  AlignCenter, Sun, ShieldCheck, Star, Scissors, Aperture,
-  Cpu, Link, Disc, Heart
+  ShieldCheck, CircleDot, Sun, Sparkles, Smile, Zap, Heart, Layers
 } from 'lucide-react'
 import type { ReactNode } from 'react'
 
@@ -15,68 +15,43 @@ interface ServiceItem {
 
 const mainServices: ServiceItem[] = [
   {
-    icon: <Zap size={26} />,
-    title: 'Painless Root Canal',
-    description: 'Advanced rotary endodontics with local anesthesia for a comfortable, anxiety-free experience. We preserve your natural tooth with precision and care.',
-  },
-  {
-    icon: <Layers size={26} />,
-    title: 'Composite / Laser Filling',
-    description: 'Tooth-colored composite restorations using laser technology for minimal drilling, maximum comfort, and flawless aesthetics.',
-  },
-  {
-    icon: <Smile size={26} />,
-    title: 'Digital Smile Design',
-    description: 'Preview your dream smile before treatment begins. Using digital imaging to plan and craft your perfect, personalized smile transformation.',
-  },
-  {
-    icon: <Crown size={26} />,
-    title: 'Zirconia Crown',
-    description: 'Premium-grade zirconia crowns offering exceptional strength and a natural translucent appearance that blends seamlessly with your teeth.',
+    icon: <ShieldCheck size={26} />,
+    title: 'General Dentistry',
+    description: 'Preventative cleanings, digital x-rays, comprehensive exams, and composite fillings to maintain optimal oral hygiene and detect issues early.',
   },
   {
     icon: <CircleDot size={26} />,
     title: 'Dental Implants',
-    description: 'Permanent titanium implant solutions for missing teeth. Restored function and a natural look that lasts a lifetime with proper care.',
-  },
-  {
-    icon: <Sparkles size={26} />,
-    title: 'Veneers',
-    description: 'Ultra-thin porcelain or composite shells custom-bonded to transform tooth shape, color, and alignment for a flawless smile.',
-  },
-  {
-    icon: <AlignCenter size={26} />,
-    title: 'Braces — Metal & Ceramic',
-    description: 'Comprehensive orthodontic solutions from traditional metal braces to discreet ceramic brackets for all ages and bite complexities.',
+    description: 'Permanent titanium implant placement and custom crowns to replace missing teeth, fully restoring your natural chewing function and confidence.',
   },
   {
     icon: <Sun size={26} />,
     title: 'Teeth Whitening',
-    description: 'Professional in-office whitening for dramatically brighter teeth in a single visit. Safe, fast, and long-lasting results.',
+    description: 'Advanced in-office professional whitening systems to dramatically brighten your teeth by several shades in just a single comfortable visit.',
   },
   {
-    icon: <ShieldCheck size={26} />,
-    title: 'Scaling & Polishing',
-    description: 'Deep ultrasonic cleaning to remove plaque, tartar, and surface stains—keeping your gums healthy and your smile fresh.',
+    icon: <Sparkles size={26} />,
+    title: 'Veneers',
+    description: 'Ultra-thin, hand-crafted porcelain or composite shells bonded to the front of your teeth to correct chips, discoloration, and structural gaps.',
   },
   {
-    icon: <Star size={26} />,
-    title: 'Hollywood Smile',
-    description: 'A complete smile makeover combining veneers, whitening, and gum contouring for a red-carpet-ready, picture-perfect smile.',
+    icon: <Smile size={26} />,
+    title: 'Invisalign',
+    description: 'Discreet, clear, and removable orthodontic aligners custom-made to straighten your teeth gradually without the discomfort of metal brackets.',
   },
   {
-    icon: <Scissors size={26} />,
-    title: 'Wisdom Tooth Surgery',
-    description: 'Safe surgical extraction of impacted or problematic wisdom teeth with minimal discomfort and rapid recovery protocols.',
+    icon: <Zap size={26} />,
+    title: 'Emergency Dental Care',
+    description: 'Same-day emergency visits for severe toothaches, chipped teeth, abscesses, or facial swelling. Immediate priority care when you need it most.',
   },
   {
-    icon: <Aperture size={26} />,
-    title: 'Removable Denture',
-    description: 'Custom-fitted partial or full dentures crafted for comfort, natural appearance, and reliable function in daily life.',
+    icon: <Heart size={26} />,
+    title: 'Family Dentistry',
+    description: 'Gentle, compassionate pediatric and adult dental services tailored for all ages — from toddlers taking their first exam to senior oral health care.',
   },
 ]
 
-/* ── Featured Specialty Cards (bottom) ── */
+/* ── Featured Specialty Cards ── */
 interface SpecialtyItem {
   icon: ReactNode
   title: string
@@ -92,21 +67,21 @@ const specialties: SpecialtyItem[] = [
     image: '/images/Dental Implants.jpg',
   },
   {
-    icon: <AlignCenter size={24} />,
-    title: 'Braces & Invisible Aligners',
-    subtitle: 'Modern orthodontic solutions',
-    image: '/images/Braces & Invisible Aligners.webp',
+    icon: <Smile size={24} />,
+    title: 'Invisalign Aligners',
+    subtitle: 'Clear orthodontic solutions',
+    image: '/images/Invisalign Treatment.jpg',
   },
   {
-    icon: <Link size={24} />,
-    title: 'Crown & Bridge',
-    subtitle: 'Seamless restorations',
-    image: '/images/Crown & Bridge.jpg',
+    icon: <Sparkles size={24} />,
+    title: 'Porcelain Veneers',
+    subtitle: 'Custom smile makeovers',
+    image: '/images/Porcelain Veneers.webp',
   },
   {
-    icon: <Heart size={24} />,
-    title: 'Root Canal Treatment',
-    subtitle: 'Painless precision care',
+    icon: <Zap size={24} />,
+    title: 'Emergency Dental Care',
+    subtitle: 'Same-day priority relief',
     image: '/images/Root Canal Treatment.webp',
   },
 ]
@@ -123,14 +98,14 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-accent font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">What We Offer</span>
+          <span className="text-accent font-bold tracking-widest uppercase text-xs sm:text-sm mb-3 sm:mb-4 block">Our Specialties</span>
           <h2 id="services-heading" className="text-2xl sm:text-4xl lg:text-5xl font-black text-primary mb-3 sm:mb-4">Comprehensive Dental Services</h2>
           <p className="text-slate-500 max-w-2xl mx-auto text-sm sm:text-lg">
-            From preventive care to advanced cosmetic procedures — everything you need under one roof, powered by modern technology and a gentle, patient-first approach.
+            Bespoke dental care powered by modern technology and a gentle, patient-first approach. Serving families and professionals in Dallas.
           </p>
         </motion.div>
 
-        {/* ── Featured Specialties (top) ── */}
+        {/* ── Featured Specialties ── */}
         <motion.div
           className="text-center mb-6 sm:mb-10"
           initial={{ opacity: 0, y: 20 }}
@@ -138,8 +113,8 @@ export default function Services() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-xl sm:text-2xl font-black text-primary">Our Signature Specialties</h3>
-          <p className="text-slate-400 mt-1 sm:mt-2 text-sm sm:text-base">Treatments we're known for</p>
+          <h3 className="text-xl sm:text-2xl font-black text-primary">Signature Treatments</h3>
+          <p className="text-slate-400 mt-1 sm:mt-2 text-sm sm:text-base">Our most requested clinical procedures</p>
         </motion.div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-12 sm:mb-20" role="list">
@@ -157,7 +132,7 @@ export default function Services() {
               {/* Background image */}
               <img
                 src={item.image}
-                alt={`${item.title} treatment at Serene Dental Aesthetics, Lahore`}
+                alt={`${item.title} at Dallas Dental Care`}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="lazy"
               />

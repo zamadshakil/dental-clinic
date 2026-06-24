@@ -1,16 +1,16 @@
 import { Instagram, Facebook } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 const quickLinks = [
   { label: 'Our Services', href: '#services' },
-  { label: 'Before & After', href: '#results' },
   { label: 'Why Choose Us', href: '#about' },
+  { label: 'Meet Clinical Experts', href: '#dentists' },
   { label: 'Contact Us', href: '#contact' },
 ]
 
 const socials = [
-  { icon: <Instagram size={18} />, href: 'https://www.instagram.com/serenedentalandaesthetics/?hl=en', label: 'Follow us on Instagram' },
-  { icon: <Facebook size={18} />, href: 'https://www.facebook.com/serenedentalaesthetics/', label: 'Visit us on Facebook' },
+  { icon: <Instagram size={18} />, href: 'https://www.instagram.com/', label: 'Follow us on Instagram' },
+  { icon: <Facebook size={18} />, href: 'https://www.facebook.com/', label: 'Visit us on Facebook' },
 ]
 
 export default function Footer() {
@@ -21,18 +21,18 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2">
             <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <img
-                src="/images/Serene Dental Aesthetics.png"
-                alt="Serene Dental Aesthetics logo"
-                className="h-10 sm:h-12 w-auto rounded-lg"
-              />
+              {/* Custom SVG logo */}
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8z"/>
+                <path d="M12 6v12M6 12h12"/>
+              </svg>
               <div className="flex flex-col">
-                <span className="text-lg sm:text-xl font-bold tracking-tight text-primary uppercase">Serene Dental</span>
-                <span className="text-[9px] sm:text-[10px] tracking-[0.2em] text-accent font-semibold uppercase">Aesthetics</span>
+                <span className="text-base sm:text-lg font-extrabold tracking-tight text-primary uppercase">Dallas Dental</span>
+                <span className="text-[9px] sm:text-[10px] tracking-[0.22em] text-accent font-bold uppercase">Care</span>
               </div>
             </div>
             <p className="text-slate-500 max-w-sm text-sm sm:text-base leading-relaxed">
-              Dedicated to providing Lahore's highest standard of dental care with a personalized, gentle touch. Your oral health and aesthetic confidence are our top priorities.
+              Dedicated to providing the highest standard of dental care to Dallas families with a personalized, gentle touch. Your oral health and clinical trust are our top priorities.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
           {/* Follow Us */}
           <div>
             <h4 className="font-bold text-primary mb-4 sm:mb-6 text-sm sm:text-base">Follow Us</h4>
-            <div className="flex gap-3 sm:gap-4">
+            <div className="flex gap-3 sm:gap-4 mb-6">
               {socials.map((s) => (
                 <a
                   key={s.label}
@@ -67,19 +67,29 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <div className="text-xs text-slate-400 font-medium">
+              Email: <a href="mailto:hello@dallasdentalcare.com" className="text-accent hover:underline">hello@dallasdentalcare.com</a>
+            </div>
           </div>
         </div>
 
+        {/* Demo disclaimer warning */}
+        <div className="border-t border-slate-100 pt-6 pb-4 text-center">
+          <p className="text-xs font-semibold text-slate-400/90 tracking-wide uppercase">
+            ⚠️ This website is a demonstration concept.
+          </p>
+        </div>
+
         {/* Bottom bar */}
-        <div className="border-t border-slate-100 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
+        <div className="border-t border-slate-100 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-4">
           <p className="text-slate-400 text-xs sm:text-sm text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Serene Dental Aesthetics. All rights reserved.
+            &copy; {new Date().getFullYear()} Dallas Dental Care. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-slate-400 text-xs sm:text-sm font-medium">
-            <Link to="/privacy-policy" className="hover:text-primary transition-colors py-1">Privacy Policy</Link>
-            <Link to="/terms-of-service" className="hover:text-primary transition-colors py-1">Terms of Service</Link>
-            <span className="hidden sm:inline">Fazaia Housing Society, Lahore</span>
-            <a href="tel:03302737363" className="hover:text-primary transition-colors py-1">0330 2737363</a>
+            <Link href="/privacy-policy" className="hover:text-primary transition-colors py-1">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-primary transition-colors py-1">Terms of Service</Link>
+            <span className="hidden sm:inline">1234 Preston Road, Dallas, TX 75230</span>
+            <a href="tel:2145550187" className="hover:text-primary transition-colors py-1">(214) 555-0187</a>
           </div>
         </div>
       </div>
